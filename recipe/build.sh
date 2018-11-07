@@ -1,7 +1,11 @@
 #!/bin/bash
 
-export CFLAGS="-I${PREFIX}/include"
-export LDFLAGS="-L${PREFIX}/lib"
-./configure  --prefix=$PREFIX ##--disable-static
-make
+if [[ ${HOST} =~ .*darwin.* ]]; then
+  export CPPFLAGS="${CPPFLAGS} -framework OpenGL"
+  export LDFLAGS="${LDFLAGS} -framework OpenGL"
+fi
+./configure --prefix=${PREFIX} \
+            --build=${BUILD} \
+            --host=${HOST}
+make -j${CPU_COUNT} ${VERBOSE_AT}
 make install
