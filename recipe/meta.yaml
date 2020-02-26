@@ -26,7 +26,6 @@ requirements:
     - {{ cdt('libglvnd') }}              # [linux & (ppc64le | aarch64)]
     - {{ cdt('libxshmfence-devel') }}    # [linux & (ppc64le | aarch64)]
     - {{ cdt('mesa-khr-devel') }}        # [linux & (ppc64le | aarch64)]
-    - pkg-config                    # [unix]
     - make                          # [unix]
     - autoconf                      # [unix]
     - automake                      # [unix]
