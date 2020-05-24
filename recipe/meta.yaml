@@ -37,6 +37,8 @@ requirements:
     - pkg-config                    # [unix]
     - make                          # [unix]
   host:
+    # hmaarrfk 2020/05/24: Why is mesalib not necessary for linux?
+    - mesalib      # [osx]
     - xorg-fixesproto  # [linux]
     - xorg-xproto  # [linux]
     - xorg-kbproto  # [linux]
