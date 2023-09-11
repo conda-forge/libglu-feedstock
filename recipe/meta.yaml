@@ -11,7 +11,7 @@ source:
     - 001-update-config-guess.patch
 
 build:
-  number: 1002
+  number: 1003
   skip: True  # [win or osx]
 
 requirements:
@@ -21,29 +21,23 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage-devel') }}  # [linux]
-    - {{ cdt('libxxf86vm-devel') }}  # [linux]
-    - {{ cdt('libdrm-devel') }}  # [linux]
-    - {{ cdt('libx11-devel') }}  # [linux]
-    - {{ cdt('libxfixes-devel') }}  # [linux]
-    - {{ cdt('libxext-devel') }}  # [linux]
+    - {{ cdt('libdrm-devel') }}          # [linux]
     # These dependencies are only for cos7 platforms
-    - {{ cdt('mesa-libglapi') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libglvnd-glx') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libglvnd') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libxshmfence-devel') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('libx11-common') }}  # [linux & (ppc64le | aarch64)]
-    - {{ cdt('mesa-khr-devel') }}  # [linux & (ppc64le | aarch64)]
+    - {{ cdt('mesa-libglapi') }}     # [linux & (ppc64le | aarch64)]
+    - {{ cdt('mesa-khr-devel') }}    # [linux & (ppc64le | aarch64)]
     - pkg-config                    # [unix]
     - make                          # [unix]
   host:
-    - xorg-fixesproto  # [linux]
-    - xorg-xproto  # [linux]
-    - xorg-kbproto  # [linux]
-    - xorg-xextproto  # [linux]
-    - xorg-damageproto  # [linux]
-    - xorg-xf86vidmodeproto  # [linux]
+    - xorg-libx11                        # [linux]
+    - xorg-fixesproto                    # [linux]
+    - xorg-xproto                        # [linux]
+    - xorg-kbproto                       # [linux]
+    - xorg-xextproto                     # [linux]
+    - xorg-damageproto                   # [linux]
+    - xorg-xf86vidmodeproto              # [linux]
+    - xorg-libxext                       # [linux]
+    - xorg-libxdamage                    # [linux]
+    - xorg-libxxf86vm                    # [linux]
     - libxcb       # [linux]
     # These dependencies are only for cos7 platforms
     - xorg-libxau  # [linux & (ppc64le | aarch64)]
