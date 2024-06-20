@@ -11,13 +11,14 @@ source:
     - 001-update-config-guess.patch
 
 build:
-  number: 1003
+  number: 1004
   skip: True  # [win or osx]
 
 requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
@@ -38,7 +39,7 @@ requirements:
     - xorg-libxext                       # [linux]
     - xorg-libxdamage                    # [linux]
     - xorg-libxxf86vm                    # [linux]
-    - libxcb       # [linux]
+    - libxcb                             # [linux]
     # These dependencies are only for cos7 platforms
     - xorg-libxau  # [linux & (ppc64le | aarch64)]
     - xorg-libxdmcp  # [linux & (ppc64le | aarch64)]
