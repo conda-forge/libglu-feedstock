@@ -11,13 +11,14 @@ source:
     - 001-update-config-guess.patch
 
 build:
-  number: 1003
+  number: 1004
   skip: True  # [win or osx]
 
 requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
