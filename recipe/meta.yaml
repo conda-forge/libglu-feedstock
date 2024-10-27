@@ -11,31 +11,20 @@ source:
     - 001-update-config-guess.patch
 
 build:
-  number: 1004
+  number: 1005
   skip: True  # [win or osx]
 
 requirements:
   build:
-    - gnuconfig  # [unix]
+    - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - {{ compiler('cxx') }}
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    # These dependencies are only for cos7 platforms
-    - {{ cdt('mesa-libglapi') }}     # [linux & (ppc64le | aarch64)]
-    - {{ cdt('mesa-khr-devel') }}    # [linux & (ppc64le | aarch64)]
+    - gnuconfig                     # [unix]
     - pkg-config                    # [unix]
     - make                          # [unix]
   host:
     - xorg-libx11                        # [linux]
-    - xorg-fixesproto                    # [linux]
-    - xorg-xproto                        # [linux]
-    - xorg-kbproto                       # [linux]
-    - xorg-xextproto                     # [linux]
-    - xorg-damageproto                   # [linux]
-    - xorg-xf86vidmodeproto              # [linux]
+    - xorg-xorgproto                     # [linux]
     - xorg-libxext                       # [linux]
     - xorg-libxdamage                    # [linux]
     - xorg-libxxf86vm                    # [linux]
