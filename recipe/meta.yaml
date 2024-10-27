@@ -23,6 +23,9 @@ requirements:
     - pkg-config                    # [unix]
     - make                          # [unix]
   host:
+    - libgl-devel                        # [linux]
+    - libegl-devel                       # [linux]
+    - libdrm                             # [linux]
     - xorg-libx11                        # [linux]
     - xorg-xorgproto                     # [linux]
     - xorg-libxext                       # [linux]
