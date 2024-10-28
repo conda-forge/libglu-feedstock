@@ -8,6 +8,7 @@ source:
   url: https://gitlab.freedesktop.org/mesa/glu/-/archive/glu-{{ version }}/glu-glu-{{ version }}.tar.bz2
   sha256: 38044ee4f255578165a54eaeb089b67fb64f7f7c0ce5fa690cd47c9df10b263c
   patches:
+    # https://gitlab.freedesktop.org/mesa/glu/-/merge_requests/13
     - 0001-Fix-opengl-gl-typo.-pkg-config-expects-gl-not-opengl.patch
 
 build:
