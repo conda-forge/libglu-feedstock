@@ -1,41 +1,34 @@
-{% set version = '9.0.0' %}
+{% set version = '9.0.3' %}
 
 package:
   name: libglu
   version: {{ version }}
 
 source:
-  url: ftp://ftp.freedesktop.org/pub/mesa/glu/glu-{{ version }}.tar.gz
-  sha256: 4387476a1933f36fec1531178ea204057bbeb04cc2d8396c9ea32720a1f7e264
+  url: https://gitlab.freedesktop.org/mesa/glu/-/archive/glu-{{ version }}/glu-glu-{{ version }}.tar.bz2
+  sha256: 38044ee4f255578165a54eaeb089b67fb64f7f7c0ce5fa690cd47c9df10b263c
   patches:
-    - 001-update-config-guess.patch
+    # https://gitlab.freedesktop.org/mesa/glu/-/merge_requests/13
+    - 0001-Fix-opengl-gl-typo.-pkg-config-expects-gl-not-opengl.patch
 
 build:
-  number: 1004
+  number: 0
   skip: True  # [win or osx]
 
 requirements:
   build:
-    - gnuconfig  # [unix]
+    - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - {{ compiler('cxx') }}
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    # These dependencies are only for cos7 platforms
-    - {{ cdt('mesa-libglapi') }}     # [linux & (ppc64le | aarch64)]
-    - {{ cdt('mesa-khr-devel') }}    # [linux & (ppc64le | aarch64)]
     - pkg-config                    # [unix]
-    - make                          # [unix]
+    - ninja
+    - meson
   host:
+    - libgl-devel                        # [linux]
+    - libegl-devel                       # [linux]
+    - libdrm                             # [linux]
     - xorg-libx11                        # [linux]
-    - xorg-fixesproto                    # [linux]
-    - xorg-xproto                        # [linux]
-    - xorg-kbproto                       # [linux]
-    - xorg-xextproto                     # [linux]
-    - xorg-damageproto                   # [linux]
-    - xorg-xf86vidmodeproto              # [linux]
+    - xorg-xorgproto                     # [linux]
     - xorg-libxext                       # [linux]
     - xorg-libxdamage                    # [linux]
     - xorg-libxxf86vm                    # [linux]
@@ -53,7 +46,9 @@ about:
   home: http://www.mesa3d.org/glu.html
   license: SGI-2
   summary: Mesa OpenGL utility library (GLU)
+  dev_url: https://gitlab.freedesktop.org/mesa/glu
 
 extra:
   recipe-maintainers:
     - bgruening
+    - hmaarrfk
