@@ -9,6 +9,8 @@ Package license: SGI-2
 
 Summary: Mesa OpenGL utility library (GLU)
 
+Development: https://gitlab.freedesktop.org/mesa/glu
+
 Current build status
 ====================
 
@@ -177,4 +179,5 @@ Feedstock Maintainers
 =====================
 
 * [@bgruening](https://github.com/bgruening/)
+* [@hmaarrfk](https://github.com/hmaarrfk/)
 
