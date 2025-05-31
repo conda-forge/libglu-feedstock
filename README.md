@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libglu-feedstoc
 
 Home: http://www.mesa3d.org/glu.html
 
-Package license: SGI-2
+Package license: SGI-B-2.0
 
 Summary: Mesa OpenGL utility library (GLU)
 
@@ -180,4 +180,5 @@ Feedstock Maintainers
 
 * [@bgruening](https://github.com/bgruening/)
 * [@hmaarrfk](https://github.com/hmaarrfk/)
+* [@traversaro](https://github.com/traversaro/)
 
